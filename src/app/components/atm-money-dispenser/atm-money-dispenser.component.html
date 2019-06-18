@@ -1,0 +1,49 @@
+<div class="app-container">
+  <div class="container">
+    <h1 class="display-6 app-heading">
+      ATM Money Dispenser
+    </h1>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-6 col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title app-title">Welcome to ATM</h5>
+                <form class="app-form">
+                  <div class="form-group">
+                    <label for="amountInput">Enter the amount</label>
+                    <input class="form-control" id="amountInput" [(ngModel)]="amount"  name="first" placeholder="Enter Money">
+                  </div>
+                  <button type="button" class="btn btn-primary btn-lg btn-block get-money-btn" (click)="atmMoney()">Get Money</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-sm-6">
+            <div class="dispensed-columns">
+              <h4>You will get the following amount</h4>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>{{dispensedNotes[100]}} notes of Rs 100</td>
+                    <td>{{dispensedNotes[200]}} notes of Rs 200</td>
+                  </tr>
+                  <tr>
+                    <td>{{dispensedNotes[500]}} notes of Rs 500</td>
+                    <td>{{dispensedNotes[2000]}} notes of Rs 2000</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h4>Total Notes dispensed: {{this.totalNotes}}</h4>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

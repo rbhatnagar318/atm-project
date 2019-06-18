@@ -1,0 +1,37 @@
+/*
+ Variables
+*/
+$darkBlue: #111161;
+$lightBlue: #1b1b98;
+$white: #fff;
+
+@mixin font-size($size) {
+    font-size: $size + px;
+  }
+
+.app-heading {
+    padding: 40px;
+    background: $darkBlue;
+    color: $white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.app-title {
+    font-weight: bold;
+    text-align: center;
+    @include font-size(26);
+}
+
+.get-money-btn {
+    background: $lightBlue;
+    font-weight: bold;
+    margin-top: 60px;
+}
+
+.app-form {
+    margin: 50px 0;
+}
+
+.dispensed-columns {
+    margin-top: 50px;
+}
