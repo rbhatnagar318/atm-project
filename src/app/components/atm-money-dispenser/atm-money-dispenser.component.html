@@ -1,9 +1,6 @@
 <div class="app-container">
   <div class="container">
-      <div class="alert alert-danger" role="alert" *ngIf ="showAlert">
-          Amount below 100 not allowed!
-        </div>
-        
+
     <h1 class="display-6 app-heading">
       ATM Money Dispenser
     </h1>
@@ -17,9 +14,14 @@
                 <form class="app-form">
                   <div class="form-group">
                     <label for="amountInput">Enter the amount</label>
-                    <input class="form-control amountInput" id="amountInput" [(ngModel)]="amount"  name="first" placeholder="Enter Money">
+                    <input class="form-control amountInput" id="amountInput" [(ngModel)]="amount" name="first"
+                      placeholder="Enter Money">
+                    <div class="alert alert-danger" style="margin-top: 10px;" role="alert" *ngIf="showAlert">
+                      Minimum entered amount should be 100!
+                    </div>
                   </div>
-                  <button type="button" class="btn btn-primary btn-lg btn-block get-money-btn" (click)="atmMoney()">Get Money</button>
+                  <button type="button" class="btn btn-primary btn-lg btn-block get-money-btn" (click)="atmMoney()">Get
+                    Money</button>
                 </form>
               </div>
             </div>
