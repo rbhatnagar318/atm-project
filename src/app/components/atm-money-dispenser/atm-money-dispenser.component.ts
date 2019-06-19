@@ -10,6 +10,7 @@ export class AtmMoneyDispenserComponent implements OnInit {
   totalNotes: any
   showAlert :any
   dispensedNotes = {}
+  alertMessage :any;
   constructor() { }
 
   ngOnInit() {
@@ -23,7 +24,17 @@ export class AtmMoneyDispenserComponent implements OnInit {
   atmMoney() {
     if(this.amount<100){
      this.showAlert =true;
+     this.alertMessage = 'Amount below 100 not allowed!'
      let _this =this;
+     setTimeout(function(){
+      _this.showAlert = false;
+     },3000)
+     return false;
+    }
+    if(this.amount%100 != 0){
+      this.showAlert =true;
+      this.alertMessage = 'Amount should be multiple of 100!'
+       let _this =this;
      setTimeout(function(){
       _this.showAlert = false;
      },3000)
