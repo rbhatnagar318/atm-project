@@ -16,7 +16,7 @@
                     <input class="form-control amountInput" id="amountInput" [(ngModel)]="amount" name="first"
                       placeholder="Enter Money">
                     <div class="alert alert-danger" style="margin-top: 10px;" role="alert" *ngIf="showAlert">
-                      Minimum entered amount should be 100!
+                      {{alertMessage}}
                     </div>
                   </div>
                   <button type="button" class="btn btn-primary btn-lg btn-block get-money-btn" (click)="atmMoney()">Get

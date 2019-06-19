@@ -24,7 +24,7 @@ export class AtmMoneyDispenserComponent implements OnInit {
   atmMoney() {
     if(this.amount<100){
      this.showAlert =true;
-     this.alertMessage = 'Amount below 100 not allowed!'
+     this.alertMessage = 'Minimum entered amount should be 100!'
      let _this =this;
      setTimeout(function(){
       _this.showAlert = false;
@@ -33,12 +33,11 @@ export class AtmMoneyDispenserComponent implements OnInit {
     }
     if(this.amount%100 != 0){
       this.showAlert =true;
-      this.alertMessage = 'Amount should be multiple of 100!'
+      this.alertMessage = `We don't have your Rs${this.amount%100} change`
        let _this =this;
      setTimeout(function(){
       _this.showAlert = false;
      },3000)
-     return false;
     }
     this.dispensedNotes = {
       2000: 0,
