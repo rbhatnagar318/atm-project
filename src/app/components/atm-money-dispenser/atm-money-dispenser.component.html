@@ -13,7 +13,7 @@
                 <form class="app-form">
                   <div class="form-group">
                     <label for="amountInput">Enter the amount</label>
-                    <input class="form-control amountInput" id="amountInput" [(ngModel)]="amount" name="first"
+                    <input class="form-control amountInput" id="amountInput" type="number" [(ngModel)]="amount" name="first"
                       placeholder="Enter Money">
                     <div class="alert alert-danger" style="margin-top: 10px;" role="alert" *ngIf="showAlert">
                       {{alertMessage}}

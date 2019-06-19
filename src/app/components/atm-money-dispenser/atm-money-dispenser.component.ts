@@ -33,7 +33,7 @@ export class AtmMoneyDispenserComponent implements OnInit {
     }
     if(this.amount%100 != 0){
       this.showAlert =true;
-      this.alertMessage = `We don't have your Rs${this.amount%100} change`
+      this.alertMessage = `We don't have your Rs ${this.amount%100} change`
        let _this =this;
      setTimeout(function(){
       _this.showAlert = false;
