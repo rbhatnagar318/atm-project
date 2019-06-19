@@ -27,6 +27,7 @@ export class AtmMoneyDispenserComponent implements OnInit {
      setTimeout(function(){
       _this.showAlert = false;
      },3000)
+     return false;
     }
     this.dispensedNotes = {
       2000: 0,
