@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AtmMoneyDispenserComponent implements OnInit {
   amount: any
   totalNotes: any
+  showAlert :any
   dispensedNotes = {}
   constructor() { }
 
@@ -20,6 +21,13 @@ export class AtmMoneyDispenserComponent implements OnInit {
   }
 
   atmMoney() {
+    if(this.amount<100){
+     this.showAlert =true;
+     let _this =this;
+     setTimeout(function(){
+      _this.showAlert = false;
+     },3000)
+    }
     this.dispensedNotes = {
       2000: 0,
       500: 0,
