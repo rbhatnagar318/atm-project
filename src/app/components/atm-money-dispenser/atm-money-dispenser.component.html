@@ -1,4 +1,4 @@
-<div class="app-container">
+<div class="app-container" >
   <div class="container">
     <h1 class="display-6 app-heading">
       ATM Money Dispenser
@@ -13,14 +13,15 @@
                 <form class="app-form">
                   <div class="form-group">
                     <label for="amountInput">Enter the amount</label>
-                    <input class="form-control amountInput" id="amountInput" type="number" [(ngModel)]="amount" name="first"
-                      placeholder="Enter Money">
+                    <input class="form-control amountInput" id="amountInput" type="number" [(ngModel)]="amount"
+                      name="first" placeholder="Enter Money">
                     <div class="alert alert-danger" style="margin-top: 10px;" role="alert" *ngIf="showAlert">
                       {{alertMessage}}
                     </div>
                   </div>
                   <button type="button" class="btn btn-primary btn-lg btn-block get-money-btn" (click)="atmMoney()">Get
-                    Money</button>
+                    Money
+                  </button>
                 </form>
               </div>
             </div>
@@ -50,5 +51,6 @@
         </div>
       </div>
     </div>
+    <app-atm-modal [openModal]="openModal" #primaryColorSample></app-atm-modal>
   </div>
 </div>

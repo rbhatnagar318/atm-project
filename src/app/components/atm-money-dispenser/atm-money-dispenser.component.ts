@@ -6,38 +6,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./atm-money-dispenser.component.scss']
 })
 export class AtmMoneyDispenserComponent implements OnInit {
+  openModal: any
   amount: any
   totalNotes: any
-  showAlert :any
+  showAlert: any
   dispensedNotes = {}
-  alertMessage :any;
+  alertMessage: any;
+
   constructor() { }
 
   ngOnInit() {
-    this.initFunc();
   }
 
-  initFunc() {
-
-  }
-
+  
   atmMoney() {
-    if(this.amount<100){
-     this.showAlert =true;
-     this.alertMessage = 'Minimum entered amount should be 100!'
-     let _this =this;
-     setTimeout(function(){
-      _this.showAlert = false;
-     },3000)
-     return false;
+    // var audio = new Audio('/assets/audio/Atm-Cash-machine-free-sound-effect.mp3');
+    // audio.play()
+    // audio.onended = function () {
+    //   alert("The audio has ended");
+    // };
+    // var duration = audio[0].duration;
+    // alert(duration);
+    this.openModal = true
+    if (!this.amount)
+      return
+    if (this.amount < 100) {
+      this.showAlert = true;
+      this.alertMessage = 'Minimum entered amount should be 100!'
+      let _this = this;
+      setTimeout(function () {
+        _this.showAlert = false;
+      }, 3000)
+      return false;
     }
-    if(this.amount%100 != 0){
-      this.showAlert =true;
-      this.alertMessage = `We don't have your Rs ${this.amount%100} change`
-       let _this =this;
-     setTimeout(function(){
-      _this.showAlert = false;
-     },3000)
+    if (this.amount % 100 != 0) {
+      this.showAlert = true;
+      this.alertMessage = `We don't have your Rs ${this.amount % 100} change`
+      let _this = this;
+      setTimeout(function () {
+        _this.showAlert = false;
+      }, 3000)
     }
     this.dispensedNotes = {
       2000: 0,
