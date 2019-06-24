@@ -24,7 +24,7 @@ export class AtmMoneyDispenserComponent implements OnInit {
     
     if(this.amount<100){
      this.showAlert =true;
-     this.alertMessage = 'Minimum cash to be withdraw is 100!'
+     this.alertMessage = 'Minimum cash to be withdrwa'
      let _this =this;
      setTimeout(function(){
       _this.showAlert = false;
