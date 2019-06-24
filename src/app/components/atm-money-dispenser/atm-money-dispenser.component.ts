@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiceService} from '../../service.service';
 
 @Component({
   selector: 'app-atm-money-dispenser',
@@ -13,39 +14,31 @@ export class AtmMoneyDispenserComponent implements OnInit {
   dispensedNotes = {}
   alertMessage: any;
 
-  constructor() { }
+  constructor(private serviceService:ServiceService) { }
 
   ngOnInit() {
   }
 
   
   atmMoney() {
-    // var audio = new Audio('/assets/audio/Atm-Cash-machine-free-sound-effect.mp3');
-    // audio.play()
-    // audio.onended = function () {
-    //   alert("The audio has ended");
-    // };
-    // var duration = audio[0].duration;
-    // alert(duration);
-    this.openModal = true
-    if (!this.amount)
-      return
-    if (this.amount < 100) {
-      this.showAlert = true;
-      this.alertMessage = 'Minimum entered amount should be 100!'
-      let _this = this;
-      setTimeout(function () {
-        _this.showAlert = false;
-      }, 3000)
-      return false;
+    this.serviceService.atmButtonClicked();
+    if(this.amount<100){
+     this.showAlert =true;
+     this.alertMessage = 'Amount below 100 not allowed!'
+     let _this =this;
+     setTimeout(function(){
+      _this.showAlert = false;
+     },3000)
+     return false;
     }
-    if (this.amount % 100 != 0) {
-      this.showAlert = true;
-      this.alertMessage = `We don't have your Rs ${this.amount % 100} change`
-      let _this = this;
-      setTimeout(function () {
-        _this.showAlert = false;
-      }, 3000)
+    if(this.amount%100 != 0){
+      this.showAlert =true;
+      this.alertMessage = 'Amount should be multiple of 100!'
+       let _this =this;
+     setTimeout(function(){
+      _this.showAlert = false;
+     },3000)
+     return false;
     }
     this.dispensedNotes = {
       2000: 0,
@@ -66,5 +59,7 @@ export class AtmMoneyDispenserComponent implements OnInit {
     };
     this.amount = '';
     this.totalNotes = Object.values(this.dispensedNotes).reduce((a: number, b: number) => a + b);
+   
   }
+
 }
