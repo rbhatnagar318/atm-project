@@ -21,10 +21,10 @@ export class AtmMoneyDispenserComponent implements OnInit {
 
   
   atmMoney() {
-    this.serviceService.atmButtonClicked();
+    
     if(this.amount<100){
      this.showAlert =true;
-     this.alertMessage = 'Amount below 100 not allowed!'
+     this.alertMessage = 'Minimum cash to be withdraw is 100!'
      let _this =this;
      setTimeout(function(){
       _this.showAlert = false;
@@ -40,6 +40,12 @@ export class AtmMoneyDispenserComponent implements OnInit {
      },3000)
      return false;
     }
+    var audio = new Audio('/assets/audio/Atm-Cash-machine-free-sound-effect.mp3');
+    audio.play()
+    audio.onended = () => {
+      this.serviceService.atmButtonStopClicked();
+    };
+    this.serviceService.atmButtonClicked();
     this.dispensedNotes = {
       2000: 0,
       500: 0,

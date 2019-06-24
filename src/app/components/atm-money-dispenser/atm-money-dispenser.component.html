@@ -19,7 +19,7 @@
                       {{alertMessage}}
                     </div>
                   </div>
-                  <button type="button" class="btn btn-primary btn-lg btn-block get-money-btn" (click)="atmMoney()">Get
+                  <button type="button" class="btn btn-primary btn-lg btn-block get-money-btn" [disabled]="!amount" (click)="atmMoney()">Get
                     Money
                   </button>
                 </form>
@@ -51,6 +51,6 @@
         </div>
       </div>
     </div>
-    <app-atm-modal [openModal]="openModal" #primaryColorSample></app-atm-modal>
+    <app-atm-modal></app-atm-modal>
   </div>
 </div>
