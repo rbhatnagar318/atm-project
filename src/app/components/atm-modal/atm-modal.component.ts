@@ -27,7 +27,7 @@ export class AtmModalComponent implements OnInit {
   
 
   ngOnInit() {
-    this.serviceService.returnFilterSubject('atmClicked').subscribe(res=>{
+    this.serviceService.returnSubject('atmClicked').subscribe(res=>{
       console.log('clicked')
     })
   }

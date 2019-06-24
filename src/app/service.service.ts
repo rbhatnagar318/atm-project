@@ -12,7 +12,7 @@ export class ServiceService {
     this.atmClicked.next();
   }
 
-  returnFilterSubject(subject): Observable<any> {
+  returnSubject(subject): Observable<any> {
     if (subject === 'atmClicked') {
       return this.atmClicked.asObservable();
     }
